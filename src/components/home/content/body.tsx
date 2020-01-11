@@ -10,6 +10,7 @@ import {
 } from "semantic-ui-react";
 import PostList from "./posts/List";
 import AboutLocation from "./about/Location";
+import MediaQuery from "react-responsive";
 
 const HomeContentBody = () => {
   const contextRef = createRef();
@@ -28,14 +29,26 @@ const HomeContentBody = () => {
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column width="10">
-                <PostList />
-              </Grid.Column>
-              <Grid.Column width="6">
-                <Sticky context={contextRef}>
-                  <AboutLocation />
-                </Sticky>
-              </Grid.Column>
+              <MediaQuery maxDeviceWidth={900}>
+                <Grid.Column width="16">
+                  <PostList />
+                </Grid.Column>
+                <Grid.Column width="16">
+                  <Sticky context={contextRef}>
+                    <AboutLocation />
+                  </Sticky>
+                </Grid.Column>
+              </MediaQuery>
+              <MediaQuery minDeviceWidth={901}>
+                <Grid.Column width="10">
+                  <PostList />
+                </Grid.Column>
+                <Grid.Column width="6">
+                  <Sticky context={contextRef}>
+                    <AboutLocation />
+                  </Sticky>
+                </Grid.Column>
+              </MediaQuery>
             </Grid.Row>
           </Grid>
         </Ref>

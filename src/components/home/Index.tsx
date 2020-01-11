@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Segment } from "semantic-ui-react";
-import "./Home.css";
-import HomeHeader from "./HomeHeader";
+import HomeHeader from "./header/HomeHeader";
 import MainStore from "../../app/stores/MainStore";
 import { observer } from "mobx-react-lite";
 import { Loading } from "../../app/layout/Loading";

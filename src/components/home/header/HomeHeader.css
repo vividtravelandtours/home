@@ -24,6 +24,12 @@
 
     animation: showLogo 1s 4s ease-out backwards;
 }
+@media only screen and (max-width: 900px) {
+    .ui.segment.home-header .image > img {
+        width: 100%;
+        height: auto;
+    }
+}
 
 .ui.segment.home-header .ui.icon.header span {
     letter-spacing: 2px;
@@ -34,6 +40,11 @@
     display: inline-block;
 
     animation: textToLeft 2s ease-out backwards;
+}
+@media only screen and (max-width: 900px) {
+    .ui.segment.home-header .ui.icon.header span {
+        font-size: 18px;
+    }
 }
 
 .ui.segment.home-header .ui.icon.header i {
@@ -48,6 +59,11 @@
     letter-spacing: 4px;
 
     animation: textToRight 2s ease-out backwards;
+}
+@media only screen and (max-width: 900px) {
+    .ui.segment.home-header .ui.icon.header > .sub.header {
+        font-size: 12px;
+    }
 }
 
 .ui.segment.home-header > .ui.items > .item > .ui.buttons {

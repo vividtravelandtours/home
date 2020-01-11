@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Segment, Item, Header, Icon, Button } from "semantic-ui-react";
-import MainStore from "../../app/stores/MainStore";
+import MainStore from "../../../app/stores/MainStore";
 import { observer } from "mobx-react-lite";
+import './HomeHeader.css';
 
 const HomeHeader = () => {
 

@@ -5,7 +5,7 @@ import { IPost } from "../../../../app/models/Post";
 
 const PostItem: FC<{ post: IPost }> = ({ post }) => {
   return (
-    <Card style={{width: '100%'}}>
+    <Card className="anouncement-post" style={{width: '100%'}}>
       <Card.Content>
         <Card.Header style={{marginTop: '5px'}}>{ post.title }</Card.Header>
         <Card.Meta>
