@@ -22,7 +22,7 @@
 .ui.segment.home-header .image > img {
     height: 100%;
 
-    animation: showLogo 1s 5s ease-out backwards;
+    animation: showLogo 1s 4s ease-out backwards;
 }
 
 .ui.segment.home-header .ui.icon.header span {
@@ -40,7 +40,7 @@
     color: wheat;
     margin-bottom: 15px;
 
-    animation: movePlane 3s 2s ease-out backwards;
+    animation: movePlane 2s 2s ease-out backwards;
 }
 
 .ui.segment.home-header .ui.icon.header > .sub.header {

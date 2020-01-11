@@ -4,6 +4,8 @@ import "./Home.css";
 import HomeHeader from "./HomeHeader";
 import MainStore from "../../app/stores/MainStore";
 import { observer } from "mobx-react-lite";
+import { Loading } from "../../app/layout/Loading";
+import HomeContentBody from "./content/body";
 
 const Home = () => {
 
@@ -13,9 +15,10 @@ const Home = () => {
     loadData();
   }, [loadData]);
 
-  return isLoading ? <h1>Loading ...</h1> : (
+  return isLoading ? <Loading msg="Loading..." /> : (
     <Segment.Group>
         <HomeHeader />
+        <HomeContentBody />
     </Segment.Group>
   );
 };
