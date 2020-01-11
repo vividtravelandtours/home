@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
 import Home from '../../components/home/Index';
+import { observer } from 'mobx-react-lite';
 
 const App = () => {
   return (
-    <div className="App">
+    <Fragment>
       <Home />
-    </div>
+    </Fragment>
   );
 }
 
-export default App;
+export default observer(App);

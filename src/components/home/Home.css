@@ -14,6 +14,17 @@
     text-align: center;
 }
 
+.ui.segment.home-header .image {
+    height: 200px;
+    text-align: center;
+}
+
+.ui.segment.home-header .image > img {
+    height: 100%;
+
+    animation: showLogo 1s 5s ease-out backwards;
+}
+
 .ui.segment.home-header .ui.icon.header span {
     letter-spacing: 2px;
     font-weight: 700;
@@ -39,8 +50,23 @@
     animation: textToRight 2s ease-out backwards;
 }
 
+.ui.segment.home-header > .ui.items > .item > .ui.buttons {
+    animation: moveUpButton 2s 1s ease-out backwards;
+}
 
 /* Animations */
+@keyframes showLogo {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 @keyframes movePlane {
     0% {
         opacity: 0;
@@ -78,5 +104,17 @@
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@keyframes moveUpButton {
+    0% {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
