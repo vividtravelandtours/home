@@ -16,7 +16,7 @@ const HomeContentBody = () => {
   const contextRef = createRef();
 
   return (
-    <Segment>
+    <Segment style={{marginBottom: '4em'}}>
       <Container>
         <Ref innerRef={contextRef}>
           <Grid>
