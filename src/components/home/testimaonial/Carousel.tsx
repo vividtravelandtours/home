@@ -12,6 +12,7 @@ import MediaQuery from "react-responsive";
 import Carousel from "nuka-carousel";
 import MainStore from "../../../app/stores/MainStore";
 import Reviews from "./Reviews";
+import { observer } from "mobx-react-lite";
 
 const TestimonialCarousel = () => {
   const { Testimonials } = useContext(MainStore);
@@ -64,4 +65,4 @@ const TestimonialCarousel = () => {
   );
 };
 
-export default TestimonialCarousel;
+export default observer(TestimonialCarousel);

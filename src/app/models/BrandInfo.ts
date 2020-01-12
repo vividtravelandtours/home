@@ -9,5 +9,5 @@ export interface IBrandInfo {
     header: string,
     subHeader: string,
     biography: string,
-    emailAddress: string
+    emailAddress: string[]
 }

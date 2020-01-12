@@ -4,6 +4,7 @@ import { IModels } from '../models/Models';
 import { postQuery } from './Query/PostQuery';
 import { popularQuery } from './Query/PopularQuery';
 import { testimonialQuery } from './Query/TestimonialQuery';
+import { socialQuery } from './Query/SocialQuery';
 
 const endpoint = 'https://api-apeast.graphcms.com/v1/ck4wi2nmccz8b01bqcjht3b8x/master';
 
@@ -12,7 +13,8 @@ query {
     ${brandInfoQuery},
     ${postQuery},
     ${popularQuery},
-    ${testimonialQuery}
+    ${testimonialQuery},
+    ${socialQuery}
 }`;
 
 const graphCMS = {

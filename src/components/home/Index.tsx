@@ -7,6 +7,8 @@ import { Loading } from "../../app/layout/Loading";
 import HomeContentBody from "./content/body";
 import PopularTours from "./popularTours/List";
 import TestimonialSection from "./testimaonial/section";
+import AboutTheCompany from './aboutCompany/section';
+import Footer from "../shared/footer/Footer";
 
 const Home = () => {
 
@@ -22,6 +24,8 @@ const Home = () => {
         <HomeContentBody />
         <PopularTours />
         <TestimonialSection />
+        <AboutTheCompany />
+        <Footer />
     </Segment.Group>
   );
 };
