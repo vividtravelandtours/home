@@ -3,7 +3,6 @@ import {
   Segment,
   Divider,
   Grid,
-  Button,
   Header,
   Icon,
   Item
@@ -13,6 +12,7 @@ import Carousel from "nuka-carousel";
 import MainStore from "../../../app/stores/MainStore";
 import Reviews from "./Reviews";
 import { observer } from "mobx-react-lite";
+import FeedBackModal from "./feedbackModal";
 
 const TestimonialCarousel = () => {
   const { Testimonials } = useContext(MainStore);
@@ -52,7 +52,7 @@ const TestimonialCarousel = () => {
             <Icon color="grey" size="big" name="star" />
             <Icon color="grey" size="big" name="star" />
           </Item>
-          <Button color="blue" content="Feedback" icon="thumbs up" size="big" />
+          <FeedBackModal />
         </Grid.Column>
       </Grid>
 
