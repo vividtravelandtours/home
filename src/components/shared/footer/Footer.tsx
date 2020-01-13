@@ -12,6 +12,7 @@ import MainStore from "../../../app/stores/MainStore";
 import "./Footer.css";
 import SocialMedia from "./socialMedia/SocialMedia";
 import EmailForm from "./emailUs/Form";
+import MediaQuery from "react-responsive";
 
 const Footer = () => {
   const { HomeInfo } = useContext(MainStore);
@@ -38,7 +39,11 @@ const Footer = () => {
           <Grid.Row>
             <Grid.Column width={16}>
               <Header color="yellow" as="h1" icon textAlign="center">
-                <Icon style={{backgroundColor: "grey"}} name="call" circular />
+                <Icon
+                  style={{ backgroundColor: "grey" }}
+                  name="call"
+                  circular
+                />
                 <Header.Content>Contact Us</Header.Content>
               </Header>
             </Grid.Column>
@@ -52,7 +57,9 @@ const Footer = () => {
                   <SocialMedia />
                 </Grid>
 
-                <Divider vertical>Or</Divider>
+                <MediaQuery minDeviceWidth={768}>
+                  <Divider vertical>Or</Divider>
+                </MediaQuery>
               </Segment>
             </Grid.Column>
           </Grid.Row>
