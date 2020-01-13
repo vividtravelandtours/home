@@ -1,7 +1,7 @@
 #Vivid Travel & Tours
 
 #### References:
-- Mutate Image Asset: https://graphcms.com/blog/introducing-graphcms-image/
+- Mutate Image Asset: https://graphcms.com/docs/tutorials/manually-uploading-assets/
 
 #### Email Information
 - Service:  GMAIL
