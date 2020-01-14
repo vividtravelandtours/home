@@ -1,24 +1,49 @@
-export const mutateTesimonial = `
-mutation newTestimonials() {
-    createTestimonial(data: {
+import { IImage } from "../../models/Image";
+import { INewTestimony } from "../../models/Testimonial";
+
+export const mutateTesimonial = (review: INewTestimony, image: IImage) => {
+  return `
+  mutation {
+    createTestimonial (data: {
       status: PUBLISHED,
-      name: "Efraim Lorenzana",
-      tourDestination: "Baguio",
-      review: "Very accomodating, will surely book again!",
-      date: "01/13/2020",
+      name: "${review.name}",
+      tourDestination: "${review.tourDestination}",
+      review: "${review.review}",
+      date: "2018-01-15T00:00:00.000Z",
       picture: {
         create: {
           status: PUBLISHED,
-          handle: "samplehandle",
-          fileName: "sample.jpg",
-          height: 546,
-          width: 546,
-          size: 415509,
-          mimeType: "image/jpg"
+          handle: "${image.handle}",
+          fileName: "${image.fileName}",
+          height: ${image.height},
+          width: ${image.width},
+          size: ${image.size},
+          mimeType: "${image.mimeType}"
         }
       }
     }) {
+      status
+      updatedAt
+      createdAt
       id
+      picture {
+        status
+        updatedAt
+        createdAt
+        id
+        handle
+        fileName
+        height
+        width
+        size
+        mimeType
+      }
+      name
+      tourDestination
+      review
+      date
     }
   }
-`;
+  `;
+};
+

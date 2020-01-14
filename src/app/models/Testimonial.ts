@@ -11,3 +11,10 @@ export interface ITestimonial {
     review: string,
     date: string
 }
+
+export interface INewTestimony {
+    name: string,
+    tourDestination: string,
+    review: string,
+    date: string
+}

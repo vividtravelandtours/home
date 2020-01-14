@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent } from "react";
+import React, { useState, SyntheticEvent, useContext } from "react";
 import {
   Form,
   Button,
@@ -8,10 +8,15 @@ import {
   Icon,
   Header
 } from "semantic-ui-react";
-import Axios from "axios";
-import uniqid from 'uniqid';
+import MainStore from "../../../app/stores/MainStore";
+import { INewTestimony } from "../../../app/models/Testimonial";
+import { observer } from "mobx-react-lite";
 
 const FeedbackForm = () => {
+  const frmName = "customerFeedback";
+  const { newFeedback, SubmitByForm, setSubmitByForm, Submitting } = useContext(
+    MainStore
+  );
   const [formBody, setFormBody] = useState({
     name: "",
     tourDestination: "",
@@ -28,16 +33,21 @@ const FeedbackForm = () => {
   };
 
   const handleFormSubmit = () => {
-    console.log(formBody);
+    const Testimony: INewTestimony = {
+      name: formBody.name,
+      tourDestination: formBody.tourDestination,
+      review: formBody.review,
+      date: Date().toString()
+    };
 
-    const fn: string[] = formBody.picture.toString().split('\\');
-    console.log(fn[fn.length-1]);
-    // Axios.post(
-    //   `https://www.filestackapi.com/api/store/S3?key=AqTusWlPTMuGVWthlX3tKz&path=/ee2281c603294f8b9912f6e6b543e5f5-master/${uniqid()}.jpg`,
-    //   {
-    //     fileUpload: formBody.picture
-    //   }
-    // ).then(console.log);
+    newFeedback(Testimony, formBody.picture)
+      .then(success => {
+        if(success) {
+          console.log(`new reviews from ${formBody.name} has been created`);
+        } else {
+          console.log(`new reviews from ${formBody.name} has been rejected`);
+        }
+      });
   };
 
   return (
@@ -72,7 +82,7 @@ const FeedbackForm = () => {
               iconPosition="left"
               label="Avatar"
               type="file"
-              accept=".jpg,.png"
+              accept=".jpg"
               placeholder="Upload your picture here"
               onChange={handleFieldOnchange}
             />
@@ -89,7 +99,13 @@ const FeedbackForm = () => {
           <Grid.Row>
             <Grid.Column>
               <Divider horizontal>
-                <Button content="Submit" primary />
+                <Button
+                  name={frmName}
+                  onClick={setSubmitByForm}
+                  content="Submit"
+                  primary
+                  loading={frmName === SubmitByForm && Submitting}
+                />
               </Divider>
             </Grid.Column>
           </Grid.Row>
@@ -99,4 +115,4 @@ const FeedbackForm = () => {
   );
 };
 
-export default FeedbackForm;
+export default observer(FeedbackForm);

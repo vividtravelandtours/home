@@ -4,7 +4,7 @@ import { IBrandInfo } from '../models/BrandInfo';
 import graphCMS from '../api/graphCMS';
 import { IPost } from '../models/Post';
 import { IPopular } from '../models/Popular';
-import { ITestimonial } from '../models/Testimonial';
+import { ITestimonial, INewTestimony } from '../models/Testimonial';
 import { ISocial } from '../models/Social';
 
 configure({ enforceActions: 'always' });
@@ -42,6 +42,28 @@ class MainStore {
 
     @action setSubmitByForm = (event: SyntheticEvent<HTMLButtonElement>) => this.SubmitByForm = event.currentTarget.name;
     @action formSubmitting = (status: boolean) => this.Submitting = status;
+
+    @action newFeedback = async (review: INewTestimony, imageURL: string) => {
+        this.Submitting = true;
+        try {
+            const res = await graphCMS.createTestimonial(review, imageURL);
+            console.log('mainstore', res);
+            runInAction(() => this.Submitting = false);
+            if(res.createTestimonial.status) {
+                runInAction(() => this.Testimonials?.push(res.createTestimonial));
+                return true;
+            } else {
+                return false;
+            }
+        } catch (error) {
+            console.log('mainstore:error', error);
+            runInAction(() => {
+                this.Error = { has: true, message: error };
+                this.Submitting = false;
+            });
+            return false;
+        }
+    }
 
     getSortedPosts = (posts: IPost[]) => {
         const sorted = posts.slice().sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt));
