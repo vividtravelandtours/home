@@ -36,3 +36,7 @@ Axios.post('https://www.filestackapi.com/api/store/S3?key=AqTusWlPTMuGVWthlX3tKz
 
 #### CURL
 curl -X POST -F 'fileUpload=@"C:\Users\Efraim\Pictures\All Pictures\100NIKON\DSCN1550.jpg"' "https://www.filestackapi.com/api/store/S3?key=AqTusWlPTMuGVWthlX3tKz&path=/ee2281c603294f8b9912f6e6b543e5f5-master/DSCN1550.jpg"
+
+#### Free DNS provider
+- https://asia.cloudns.net/?utm_source=adwords&utm_medium=index&utm_campaign=managed_dns_keyword
+- https://www.keycdn.com/blog/best-free-dns-hosting-providers
